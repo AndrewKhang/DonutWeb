@@ -9,6 +9,11 @@ import donut7 from "../images/donut7.jpg";
 import donut8 from "../images/donut8.jpg";
 import donut9 from "../images/donut9.jpg";
 import donut10 from "../images/donut10.jpg";
+import donut11 from "../images/donut11.jpg";
+import donut12 from "../images/donut12.jpg";
+import donut13 from "../images/donut13.jpg";
+import donut14 from "../images/donut14.jpg";
+import donut15 from "../images/donut15.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 
@@ -21,7 +26,7 @@ import ProductQuantity from "../components/ProductQuantity";
 const Menu = () => {
   const classicDonuts = [
     {
-      id: 1, 
+      id: 1,
       name: "Chocolate Glazed",
       price: "$2.00",
       img: donut1,
@@ -85,13 +90,45 @@ const Menu = () => {
     },
   ];
 
+  const TwistDonut = [
+    {
+      id: 11,
+      name: "Sugar Twist Donut",
+      price: "$2.60",
+      img: donut11,
+    },
+    {
+      id: 12,
+      name: "Cinnamon Twist Donut",
+      price: "$2.60",
+      img: donut12,
+    },
+    {
+      id: 13,
+      name: "Glazed Twist Donut ",
+      price: "$2.60",
+      img: donut13,
+    },
+    {
+      id: 14,
+      name: "Chocolate Twist Donut ",
+      price: "$2.60",
+      img: donut14,
+    },
+    {
+      id: 15,
+      name: "Krispy Kreme Original Glazed",
+      price: "$2.60",
+      img: donut15,
+    },
+  ];
+
   return (
     <div>
       {/* Menu Button */}
       <div className="text-4xl font-bold flex justify-center items-center mt-10">
         <Menubutton />
       </div>
-
       {/* Classic Donuts Slider */}
       <div className="container mx-auto mt-12">
         <h2 className="text-3xl font-bold mb-4">Classic Donuts</h2>
@@ -131,7 +168,6 @@ const Menu = () => {
           ))}
         </Swiper>
       </div>
-
       {/* Long John Donuts Slider */}
       <div className="container mx-auto mt-12">
         <h2 className="text-3xl font-bold mb-4">Long John Donuts</h2>
@@ -155,6 +191,45 @@ const Menu = () => {
           }}
         >
           {LongJohnDonuts.map((donut) => (
+            <SwiperSlide key={donut.id}>
+              <div className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
+                <img
+                  src={donut.img}
+                  alt={donut.name}
+                  className="w-40 h-40 object-cover rounded-full mx-auto mb-4"
+                />
+                <h3 className="text-sm font-semibold">{donut.name}</h3>
+                <p className="text-lg text-gray-600 mt-2 mb-2">{donut.price}</p>
+                <ProductQuantity className="flex items-center justify-center mb-2" />
+                <Add />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+      {/* Twist Donuts Slider */}
+      <div className="container mx-auto mt-12">
+        <h2 className="text-3xl font-bold mb-4">Twist Donut</h2>
+        <Swiper
+          spaceBetween={20}
+          navigation={true} // Enable navigation
+          modules={[Navigation]} // Add Navigation module
+          breakpoints={{
+            // When window width is >= 640px, show 1 item per slide
+            640: {
+              slidesPerView: 1,
+            },
+            // When window width is >= 768px, show 2 items per slide
+            768: {
+              slidesPerView: 2,
+            },
+            // When window width is >= 1024px, show 3 items per slide
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {TwistDonut.map((donut) => (
             <SwiperSlide key={donut.id}>
               <div className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition duration-300">
                 <img
