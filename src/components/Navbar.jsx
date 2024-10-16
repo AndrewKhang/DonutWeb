@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { IonIcon } from "@ionic/react"; // Import Ionicon for menu icons
+import donut16 from "../images/donut16.jpg"; // Đảm bảo bạn đã có logo trong thư mục images
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,8 +19,14 @@ const Navbar = () => {
   return (
     <header className="bg-white p-5">
       <nav className="flex justify-between items-center w-[92%] mx-auto">
-        {/* Logo */}
+        {/* Logo và tên */}
         <div className="flex items-center">
+          <img
+            src={donut16}
+            alt="Delicious Donuts Logo"
+            className="w-10 h-10"
+          />{" "}
+          {/* Logo */}
           <h1 className="text-2xl font-bold ml-4">Delicious Donuts</h1>
         </div>
 
@@ -31,22 +38,38 @@ const Navbar = () => {
         >
           <ul className="flex lg:flex-row flex-col lg:items-center lg:gap-[4vw] gap-8">
             <li>
-              <Link to="/home" className="hover:text-gray-500" onClick={closeMenu}>
+              <Link
+                to="/home"
+                className="hover:text-gray-500"
+                onClick={closeMenu}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/menu" className="hover:text-gray-500" onClick={closeMenu}>
+              <Link
+                to="/menu"
+                className="hover:text-gray-500"
+                onClick={closeMenu}
+              >
                 Menu
               </Link>
             </li>
             <li>
-              <Link to="/about" className="hover:text-gray-500" onClick={closeMenu}>
+              <Link
+                to="/about"
+                className="hover:text-gray-500"
+                onClick={closeMenu}
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-gray-500" onClick={closeMenu}>
+              <Link
+                to="/contact"
+                className="hover:text-gray-500"
+                onClick={closeMenu}
+              >
                 Contact
               </Link>
             </li>
