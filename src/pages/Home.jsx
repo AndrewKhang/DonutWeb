@@ -93,7 +93,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* About Us Section */}
       <div className="bg-gray-200 p-12 mt-16">
         <div className="container mx-auto">
@@ -113,20 +112,44 @@ const Home = () => {
           What Our Customers Say
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((_, index) => (
-            <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                {[1, 2, 3, 4, 5].map((_, i) => (
-                  <StarIcon key={i} />
-                ))}
-              </div>
-              <p className="text-gray-600 mb-4">
-                "The best donuts I've ever tasted! Fresh, fluffy, and bursting
-                with flavor."
-              </p>
-              <p className="font-semibold">- Happy Customer {index + 1}</p>
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex items-center mb-4">
+              {[1, 2, 3, 4, 5].map((_, i) => (
+                <StarIcon key={i} />
+              ))}
             </div>
-          ))}
+            <p className="text-gray-600 mb-4">
+              "The best donuts I've ever tasted! Fresh, fluffy, and bursting
+              with flavor."
+            </p>
+            <p className="font-semibold">- Happy Customer 1</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex items-center mb-4">
+              {[1, 2, 3, 4, 5].map((_, i) => (
+                <StarIcon key={i} />
+              ))}
+            </div>
+            <p className="text-gray-600 mb-4">
+              "Absolutely love the variety of flavors. The chocolate glazed is a
+              must-try!"
+            </p>
+            <p className="font-semibold">- Happy Customer 2</p>
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="flex items-center mb-4">
+              {[1, 2, 3, 4, 5].map((_, i) => (
+                <StarIcon key={i} />
+              ))}
+            </div>
+            <p className="text-gray-600 mb-4">
+              "Great service and the donuts are always fresh. Perfect treat for
+              my mornings!"
+            </p>
+            <p className="font-semibold">- Happy Customer 3</p>
+          </div>
         </div>
       </div>
 
