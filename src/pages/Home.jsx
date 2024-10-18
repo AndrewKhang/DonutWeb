@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import donut1 from "../images/donut1.jpg";
 import donut2 from "../images/donut2.jpg";
 import donut3 from "../images/donut3.jpg";
@@ -6,7 +6,8 @@ import donut4 from "../images/donut4.jpg";
 import backgroundImage from "../images/bg.jpg";
 import Button from "../components/Button";
 import Claim from "../components/Claim";
-import Add from "../components/Add";
+import Newsletter from "../components/Newslettersignup";
+
 const StarIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -19,28 +20,40 @@ const StarIcon = () => (
 );
 
 const Home = () => {
+  // State to track the index of the clicked donut
+  const [selectedDonut, setSelectedDonut] = useState(null);
+
   const donuts = [
     {
       name: "Chocolate Glazed",
       price: "$2.00",
+      description: "Rich chocolate glaze, perfectly sweet.",
       img: donut1,
     },
     {
       name: "Strawberry Sprinkles",
       price: "$2.50",
+      description: "Strawberry flavor with colorful sprinkles.",
       img: donut2,
     },
     {
       name: "Classic Vanilla Sprinkles",
       price: "$1.75",
+      description: "Vanilla donut topped with rainbow sugar.",
       img: donut3,
     },
     {
       name: "Bavarian Cream Donuts",
       price: "$2.25",
+      description: "Filled with rich Bavarian cream, powdered sugar topping.",
       img: donut4,
     },
   ];
+
+  // Function to toggle the description when an image is clicked
+  const handleDonutClick = (index) => {
+    setSelectedDonut(selectedDonut === index ? null : index); // Toggle description
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -79,6 +92,7 @@ const Home = () => {
             <div
               key={index}
               className="bg-white rounded-lg shadow-lg p-6 text-center transform hover:scale-105 transition duration-300"
+              onClick={() => handleDonutClick(index)} // Add onClick to toggle description
             >
               <img
                 src={donut.img}
@@ -87,7 +101,13 @@ const Home = () => {
               />
               <h3 className="text-xl font-semibold">{donut.name}</h3>
               <p className="text-lg text-gray-600 mt-2">{donut.price}</p>
-              <Add />
+
+              {/* Conditionally show description */}
+              {selectedDonut === index && (
+                <p className="text-gray-600 mt-4 font-bold">
+                  {donut.description}
+                </p>
+              )}
             </div>
           ))}
         </div>
@@ -152,26 +172,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       {/* Newsletter Signup */}
-      <div className="bg-blue-600 text-white py-12">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="mb-6">
-            Subscribe to our newsletter for exclusive offers and donut news!
-          </p>
-          <div className="flex justify-center">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="p-2 rounded-l-full w-64 text-gray-800"
-            />
-            <button className="bg-yellow-400 text-blue-800 font-bold py-2 px-4 rounded-r-full hover:bg-yellow-300 transition duration-300">
-              Subscribe
-            </button>
-          </div>
-        </div>
+
+      <div className="flex items-center justify-center text-4xl font-bold mb-10">
+        <p>Subcribe to receive more offer and Delicious Donuts</p>
       </div>
+      <Newsletter />
 
       {/* Footer */}
     </div>

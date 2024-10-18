@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const ProductQuantity = ({ className }) => {
+const ProductQuantity = ({ className, onChange }) => {
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    onChange(quantity);
+  }, [quantity, onChange]);
 
   const increaseQuantity = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);

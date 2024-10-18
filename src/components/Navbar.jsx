@@ -4,7 +4,7 @@ import { IonIcon } from "@ionic/react";
 import { cartOutline } from "ionicons/icons";
 import donut16 from "../images/donut16.jpg";
 
-const Navbar = ({ cartItems }) => {
+const Navbar = ({ cartItemsCount }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -77,9 +77,9 @@ const Navbar = ({ cartItems }) => {
           <div className="relative ml-6">
             <Link to="/checkout">
               <IonIcon icon={cartOutline} className="text-3xl cursor-pointer" />
-              {cartItems > 0 && (
+              {cartItemsCount > 0 && (
                 <span className="absolute top-0 right-0 bg-red-500 text-white rounded-full px-2 py-1 text-xs">
-                  {cartItems}
+                  {cartItemsCount}
                 </span>
               )}
             </Link>
