@@ -9,7 +9,7 @@ const Checkout = ({ cart, updateQuantity, removeFromCart }) => {
       <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       {cart.length === 0 ? (
         <div>
-          <p>Your cart is empty.</p>
+          <p className="">Your cart is empty.</p>
           <Link to="/menu" className="text-blue-500 hover:underline">
             Go to Menu
           </Link>
@@ -81,7 +81,7 @@ const Checkout = ({ cart, updateQuantity, removeFromCart }) => {
           </div>
           <Link
             to="/menu"
-            className="text-blue-500 hover:underline mt-8 inline-block"
+            className="text-blue-500 hover:underline mt-8 inline-block mb-5 "
           >
             Continue Shopping
           </Link>
